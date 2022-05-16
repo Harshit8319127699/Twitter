@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  width: 100vw;
+  height: 100vh;
+}
+#main{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: blue;
+  display: flex;
+}
+#left{
+  width: 25vw;
+  height: inherit;
+  background-color: aqua;
+}
+#centre{
+  width: 53vw;
+  height: inherit;
+  background-color: red;
+}
+#right{
+  width: 22vw;
+  height: inherit;
+  background-color: yellow;
+}
