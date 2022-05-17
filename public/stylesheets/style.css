@@ -6,25 +6,97 @@
 html,body{
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  background-color: black;
 }
 #main{
   width: 100vw;
   min-height: 100vh;
-  background-color: blue;
   display: flex;
+  border-top: 1px solid transparent;
 }
 #left{
   width: 25vw;
-  height: inherit;
-  background-color: aqua;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-right: 0.8px solid white;
 }
 #centre{
   width: 53vw;
   height: inherit;
-  background-color: red;
+  background-color:black;
+  padding: 1vmax 0;
 }
 #right{
   width: 22vw;
   height: inherit;
   background-color: yellow;
+}
+#anchor{
+  height: 60vh;
+  padding: 2vmax;
+}
+ #anchor a{
+text-decoration: none;
+color: white;
+line-height: 4vmax;
+font-size: 1.3vmax;
+font-family: gilroy;
+
+}
+#anchor i{
+  color: white;
+  margin-right: 2vmax;
+}
+.test{
+  width: inherit;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#head{
+  color: white;
+  font-family: gilroy;
+  font-size: 1.6vmax;
+}
+#head i{
+color: white;
+font-size: 2vmax;
+}
+#btn{
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#btn button{
+  width: 12vmax;
+  height: 2.7vmax;
+  border-radius: 2vmax;
+  background-color: rgb(76, 173, 211);
+  font-size: 1.;
+}
+#form{
+  width: 40vw;
+  height: 20vh;
+  background-color: rgb(184, 198, 204);
+  border-radius: 2vmax;
+  /* background: blur(2px); */
+  /* opacity: 0.9; */
+  margin: 0 auto;
+  display: none;
+  padding: 1vmax;
+  border: 0.3px solid rgb(76, 173, 211);
+}
+input{
+  margin-top: 1.4vmax;
+  width: 13vmax;
+  border-radius: 1vmax;
+  outline: none;
+  border: transparent;
+  padding: 0.3vmax;
 }
