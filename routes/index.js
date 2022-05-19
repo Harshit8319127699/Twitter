@@ -52,7 +52,7 @@ router.get('/profile', isLoggedIn, function (req, res) {
 
 
 })
-router.post('/createtweet', isLoggedIn, upload.single("image"), function (req,res) {
+router.post('/createtweet', isLoggedIn, upload.single("imgurl"), function (req,res) {
   userModel.findOne({ username: req.session.passport.user })
     .then(function (loggedinuser) {
       if (req.file === undefined) {
@@ -63,7 +63,7 @@ router.post('/createtweet', isLoggedIn, upload.single("image"), function (req,re
           loggedinuser.tweets.push(tweet)
           loggedinuser.save()
             .then(function (data) {
-              res.send(data)
+              res.redirect('/profile')
             })
         })
       }
@@ -76,7 +76,7 @@ router.post('/createtweet', isLoggedIn, upload.single("image"), function (req,re
           loggedinuser.tweets.push(tweet)
           loggedinuser.save()
             .then(function (data) {
-              res.send(data)
+              res.redirect('/profile')
             })
         })
       }
