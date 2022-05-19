@@ -46,7 +46,7 @@
 <form action="/createtweet" method="post" enctype="multipart/form-data">
 <input type="text" name="caption" placeholder="caption">
 <br>
-<input type="file">
+<input type="file"  name="imgurl">
 <br>
 <button value="submit">Submit</button>
 
@@ -54,9 +54,43 @@
 
 </div>
 
+<%if(allposts.length>0){%>
+<%allposts.forEach(function(elem){%>
+<%if(elem.imgurl===undefined){%>
+    <div id="postonly">
+        <h5>Username:<%=elem.username.name%></h5>
+        <p>Caption: <%=elem.caption%></p>        
+        </div>
+
+
+<%}else{%>
+    <div  id="post">
+        <div id="imgcard">
+            <img src="./images/Uploads/<%=elem.imgurl%>" alt="">
+        </div>
+        <div id="caption">
+            <h5>Username: <%=elem.username.name%></h5>
+            <p>caption : <%=elem.caption%></p>
+        </div>
+    </div>
+    <br>
+    <br>
+
+<%}%>
+    <%})%>
+
+
+<%}else{%>
+<h1>No posts here</h1>
+<%}%>
+    
 
 </div>
-<div id="right"></div>
+<div id="right">
+
+
+
+</div>
 
 
 
