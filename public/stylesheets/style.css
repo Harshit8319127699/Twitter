@@ -6,8 +6,8 @@
 html,body{
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   background-color: black;
+  overflow-x: hidden;
 }
 #main{
   width: 100vw;
@@ -24,17 +24,30 @@ html,body{
   align-items: center;
   flex-direction: column;
   border-right: 0.8px solid white;
+  border-bottom: 0.8px solid white;
+  overflow: hidden;
+/* position: fixed; */
+  /* overflow: hidden; */
 }
 #centre{
   width: 53vw;
-  height: inherit;
+  min-height: 100vh;
   background-color:black;
   padding: 1vmax 0;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
 }
 #right{
   width: 22vw;
-  height: inherit;
+  height: 60vh;
   background-color: yellow;
+  overflow: hidden;
+  margin-top: 3vmax;
+  /* position: fixed; */
 }
 #anchor{
   height: 60vh;
@@ -100,3 +113,38 @@ input{
   border: transparent;
   padding: 0.3vmax;
 }
+#post{
+  width:35vw ;
+  min-height: 55vh;
+  margin-top: 20px;
+  /* margin: 1.9vmax auto; */
+}
+#imgcard{
+width: inherit;
+min-height: 40vh;
+overflow: hidden;
+}
+#imgcard img{
+  width:inherit;
+  background-size: cover;
+}
+#caption{
+  width: inherit;
+  height: 15vh;
+  background-color: rgb(235, 226, 226);
+padding: 1vmax;
+font-family: gilroy;
+}
+#postonly{
+  width:35vw ;
+  min-height: 30vh;
+  background-color:rgb(235, 226, 226);
+  margin-top: 3vmax;
+  padding: 3vmax;
+  border-radius: 1vmax;
+  font-family:gilroy;
+}
+#postonly p{
+  margin-top: 1vmax;
+}
+
