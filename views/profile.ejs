@@ -59,8 +59,16 @@
 <%if(elem.imgurl===undefined){%>
     <div id="postonly">
         <h5>Username:<%=elem.username.name%></h5>
-        <p>Caption: <%=elem.caption%></p>        
+        <p>Caption: <%=elem.caption%></p>
+        <div id="operations2">
+            <a href="/like/<%=elem._id%>"><i class="ri-heart-line"></i><%=elem.likes.length%></a>
+            <a href="/share/<%=elem._id%>"><i class="ri-share-box-line"></i></a>
+            <a href="/comment/<%=elem._id%>"><i class="ri-chat-3-line"></i></a>
+            <a href="/savepost/<%=elem._id%>"><i class="ri-chat-download-line"></i> </a>
+        
+        </div>        
         </div>
+        
 
 
 <%}else{%>
@@ -71,6 +79,14 @@
         <div id="caption">
             <h5>Username: <%=elem.username.name%></h5>
             <p>caption : <%=elem.caption%></p>
+            <p>created at :<%=elem.createdat%></p>
+        </div>
+        <div id="operations">
+            <a href="/like/<%=elem._id%>"><i class="ri-heart-line"></i><%=elem.likes.length%></a>
+            <a href="/share/<%=elem._id%>"><i class="ri-share-box-line"></i></a>
+            <a href="/comment/<%=elem._id%>"><i class="ri-chat-3-line"></i></a>
+            <a href="/savepost/<%=elem._id%>"><i class="ri-chat-download-line"></i> </a>
+        
         </div>
     </div>
     <br>
