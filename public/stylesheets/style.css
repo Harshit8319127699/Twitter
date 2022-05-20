@@ -115,7 +115,7 @@ input{
 }
 #post{
   width:35vw ;
-  min-height: 55vh;
+  min-height: 47vh;
   margin-top: 20px;
   /* margin: 1.9vmax auto; */
 }
@@ -131,20 +131,49 @@ overflow: hidden;
 #caption{
   width: inherit;
   height: 15vh;
-  background-color: rgb(235, 226, 226);
+  background-color:#FFFFFF;
 padding: 1vmax;
 font-family: gilroy;
 }
 #postonly{
   width:35vw ;
-  min-height: 30vh;
-  background-color:rgb(235, 226, 226);
+  min-height: 16vh;
+  background-color:#FFFFFF;
   margin-top: 3vmax;
-  padding: 3vmax;
+  padding: 2vmax;
   border-radius: 1vmax;
   font-family:gilroy;
 }
 #postonly p{
   margin-top: 1vmax;
 }
+#operations{
+  width: inherit;
+  height: 7vh;
+  padding: 0.8vmax 3vmax;
+  background-color:#FFFFFF;
 
+}
+#operations a{
+  text-decoration: none;
+  color: black;
+}
+#operations i{
+  margin-left: 4vmax;
+  font-size: 1.5vmax;
+
+}
+#operations2{
+  width: inherit;
+  height: 7vh;
+  margin-top: 1vmax;
+}
+#operations2 a{
+  text-decoration: none;
+  color: black;
+}
+#operations2 i{
+  margin-left: 4vmax;
+  font-size: 1.5vmax;
+
+}
