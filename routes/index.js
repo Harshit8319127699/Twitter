@@ -41,18 +41,20 @@ router.post('/register', function (req, res) {
     })
 });
 router.get('/profile', isLoggedIn, function (req, res) {
-  userModel.findOne({username:req.session.passport.user})
-  .then(function(user){
-    tweetModel.find()
-    .populate("username")
-    .then(function(allposts){
-      res.render("profile",{user,allposts})
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (user) {
+      tweetModel.find()
+        .populate("username")
+        .then(function (allposts) {
+
+          allposts.reverse()
+          res.render("profile", { user, allposts })
+        })
     })
-  })
 
 
 })
-router.post('/createtweet', isLoggedIn, upload.single("imgurl"), function (req,res) {
+router.post('/createtweet', isLoggedIn, upload.single("imgurl"), function (req, res) {
   userModel.findOne({ username: req.session.passport.user })
     .then(function (loggedinuser) {
       if (req.file === undefined) {
@@ -82,6 +84,35 @@ router.post('/createtweet', isLoggedIn, upload.single("imgurl"), function (req,r
       }
 
     })
+})
+router.get("/like/:postid", function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (user) {
+      tweetModel.findOne({ _id: req.params.postid })
+        .then(function(post){
+          if (post.likes.indexOf(user._id) === -1) {
+            post.likes.push(user._id)
+            post.save()
+              .then(function (data) {
+                res.redirect('/profile')
+              })
+          }
+          else {
+            var index = post.likes.indexOf(user._id)
+            post.likes.splice(index, 1)
+            post.save()
+              .then(function (data) {
+                res.redirect('/profile')
+              })
+          }
+
+
+
+        })
+    })
+
+
+
 })
 
 
