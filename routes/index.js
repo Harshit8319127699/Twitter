@@ -89,7 +89,7 @@ router.get("/like/:postid", function (req, res) {
   userModel.findOne({ username: req.session.passport.user })
     .then(function (user) {
       tweetModel.findOne({ _id: req.params.postid })
-        .then(function(post){
+        .then(function (post) {
           if (post.likes.indexOf(user._id) === -1) {
             post.likes.push(user._id)
             post.save()
@@ -115,8 +115,45 @@ router.get("/like/:postid", function (req, res) {
 
 })
 
+router.get("/follow/:userid", function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (loggedinuser) {
+      userModel.findOne({ _id: req.params.userid })
+        .then(function (usertofollow) {
+          if (usertofollow.followers.indexOf(loggedinuser._id) === -1) {
+            usertofollow.followers.push(loggedinuser._id)
+            usertofollow.save()
+              .then(function () {
+                loggedinuser.following.push(usertofollow._id)
+                loggedinuser.save()
+                  .then(function () {
+                    res.send("following done")
+                  })
+              })
 
-
+          }
+          else {
+            var index = usertofollow.followers.indexOf(loggedinuser._id)
+            usertofollow.followers.splice(index, 1)
+            usertofollow.save()
+              .then(function () {
+                var i = loggedinuser.following.indexOf(usertofollow._id)
+                loggedinuser.following.splice(i, 1)
+                loggedinuser.save()
+                  .then(function () {
+                    res.send("unfollowed")
+                  })
+              })
+          }
+        })
+    })
+})
+router.get('/alluser',function(req,res){
+  userModel.find()
+  .then(function(data){
+    res.send(data)
+  })
+})
 
 
 router.post('/login', passport.authenticate('local', {
