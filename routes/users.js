@@ -11,6 +11,14 @@ const userSchema=mongoose.Schema({
   tweets:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:'tweets'
+  }],
+  followers:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'users'
+  }],
+  following:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'users'
   }]
 })
 userSchema.plugin(plm)
