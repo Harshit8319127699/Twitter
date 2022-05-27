@@ -134,10 +134,12 @@ router.get("/follow/:userid", function (req, res) {
           }
           else {
             var index = usertofollow.followers.indexOf(loggedinuser._id)
+            console.log(index);
             usertofollow.followers.splice(index, 1)
             usertofollow.save()
               .then(function () {
                 var i = loggedinuser.following.indexOf(usertofollow._id)
+                console.log(i);
                 loggedinuser.following.splice(i, 1)
                 loggedinuser.save()
                   .then(function () {
@@ -165,6 +167,45 @@ router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/')
 });
+router.get("/followback/:id",function(req,res){
+userModel.findOne({username:req.session.passport.user})
+.then(function(loggedinuser){
+  userModel.findOne({_id:req.params.id})
+  .then(function(user){
+if (user.followers.indexOf(loggedinuser._id)===-1) {
+  user.followers.push(loggedinuser._id)
+user.save()
+.then(function(){
+  loggedinuser.following.push(user._id)
+  loggedinuser.save()
+  .then(function(){
+    res.send("following done")
+  })
+})
+
+} else {
+  const index=user.followers.indexOf(loggedinuser._id)
+  user.followers.splice(index,1)
+  user.save()
+  .then(function(){
+    const i=loggedinuser.following.indexOf(user._id)
+    loggedinuser.following.splice(i,1)
+    loggedinuser.save()
+    .then(function(){
+      res.send("unfollowed")
+    })
+  })
+
+}
+    
+    
+  })
+})
+
+})
+
+
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
