@@ -19,7 +19,11 @@ const userSchema=mongoose.Schema({
   following:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:'users'
-  }]
+  }],
+  profilepic:{
+    type:String,
+    default:"default.png",
+  }
 })
 userSchema.plugin(plm)
 
