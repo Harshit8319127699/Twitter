@@ -151,10 +151,19 @@ router.get("/follow/:userid", function (req, res) {
     })
 })
 router.get('/alluser',function(req,res){
+userModel.findOne({username:req.session.passport.user })
+.then(function(user){
   userModel.find()
   .then(function(data){
-    res.send(data)
+const index=data.indexOf(user)
+data.splice(index,1)
+   res.render("alluser",{data,user})
   })
+})
+
+
+
+  
 })
 
 
