@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../stylesheets/allusers.css">
+    <title>Document</title>
+</head>
+<body>
+   <div id="main">
+    <div id="left">
+        <div id="head">
+            <i class="ri-twitter-line"></i> Twitter
+        </div>
+        <div id="anchor">
+            <div class="test">
+                <i class="ri-home-2-line"></i> <a class="a" href="/profile">Home</a><br>
+            </div>
+            <div class="test">
+            <i class="ri-hashtag"></i><a class="a" href="/alluser">Explore</a><br>
+        
+            </div>
+            <div class="test">
+            <i class="ri-question-answer-line"></i><a class="a" href="">My tweets</a><br>
+            </div>
+            <div class="test">
+            <i class="ri-chat-3-line"></i>  <a class="a" href="">Message</a><br>
+            </div>
+            <div class="test">
+            <i class="ri-book-mark-line"></i><a class="a" href="">bookmarks</a><br>
+            </div>
+            <div class="test">
+            <i class="ri-logout-box-line"></i> <a class="a" href="/logout">Logout</a><br>
+        
+            </div>
+            
+        </div>
+    </div>
+    <div id="centre">
+        <div id="nav">
+            <h1>All users</h1>
+        </div>
+        <div id="allusers">
+<%if(data.length>0){%>
+    
+    
+    
+<%}else{%>
+
+
+<%}%>
+
+            <div class="users">
+                <div class="left11">
+                    <img src="../images/default.png" alt="">
+                </div>
+                <div class="right11">
+<h3>Username:Ankit verma</h3>
+<button><a href="/follow/:id">Follow</a></button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right"></div>
+   </div> 
+</body>
+</html>
