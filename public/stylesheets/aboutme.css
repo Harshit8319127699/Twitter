@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow-x: hidden;
+}
+#main{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    background-color: black;
+    /* border-top: 1px solid transparent; */
+    overflow-x: hidden;
+}
+#left{
+    width: 25vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-right: 0.8px solid white;
+    border-bottom: 0.8px solid white;
+    overflow: hidden;
+    /* background-color: aqua; */
+  /* position: fixed; */
+    /* overflow: hidden; */
+  }
+  #centre{
+    width: 53vw;
+    min-height: 100vh;
+    background-color:black;
+    /* padding: 1vmax 0; */
+    overflow-y: auto;
+    padding-top: 2vmax;
+  
+  }
+  #right{
+    width: 22vw;
+    height: 60vh;
+    /* background-color: yellow; */
+    overflow: hidden;
+    margin-top: 14vmax;
+    /* position: fixed; */
+  }
+  #anchor{
+    height: 60vh;
+    padding: 2vmax;
+  }
+   #anchor a{
+  text-decoration: none;
+  color: white;
+  line-height: 4vmax;
+  font-size: 1.3vmax;
+  font-family: gilroy;
+  
+  }
+  #anchor i{
+    color: white;
+    margin-right: 2vmax;
+  }
+  .test{
+    width: inherit;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #head{
+    color: white;
+    font-family: gilroy;
+    font-size: 1.6vmax;
+  }
+  #head i{
+  color: white;
+  font-size: 2vmax;
+  }
+  #btn{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #container{
+      width: 40vw;
+      height: 43vh;
+      background-color:white;
+      margin: 0 auto;
+      border-radius: 1.2vmax;
+      
+  }
+  #profile-img{
+      width: 13vmax;
+      height: 13vmax;
+      /* background-color: red; */
+      border-radius: 50%;
+      margin: 0 auto;
+  }
+  #profile-img img{
+      height: inherit;
+  }
+  #profile-name{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #profile-name h1{
+      font-family: gilroy;
+      font-weight: 400;
+  }
+  #profile-username{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vmax;
+  }
+  #profile-username h3{
+      font-family: gilroy;
+      font-weight: 400;
+  }
+form{
+    margin: 0 auto;
+}
