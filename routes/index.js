@@ -127,7 +127,7 @@ router.get("/follow/:userid", function (req, res) {
                 loggedinuser.following.push(usertofollow._id)
                 loggedinuser.save()
                   .then(function () {
-                    res.send("following done")
+                    res.redirect("/alluser")
                   })
               })
 
@@ -143,7 +143,7 @@ router.get("/follow/:userid", function (req, res) {
                 loggedinuser.following.splice(i, 1)
                 loggedinuser.save()
                   .then(function () {
-                    res.send("unfollowed")
+                    res.redirect("/alluser")
                   })
               })
           }
@@ -165,7 +165,24 @@ data.splice(index,1)
 
   
 })
-
+router.get("/aboutme",function(req,res){
+  userModel.findOne({ username: req.session.passport.user })
+  .populate("tweets")
+    .then(function (user) {
+res.render("aboutme",{user})
+    })
+})
+router.post("/uploadprofile",upload.single("profilepic"),function (req,res){
+  userModel.findOne({username:req.session.passport.user})
+  .then(function(user){
+    console.log(req.file.filename);
+    user.profilepic=req.file.filename
+    user.save()
+    .then(function(data){
+      res.redirect("/profile")
+    })
+  })
+})
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile',
