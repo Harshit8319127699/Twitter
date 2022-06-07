@@ -100,6 +100,8 @@ html,body{
       /* background-color: red; */
       border-radius: 50%;
       margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid black;
   }
   #profile-img img{
       height: inherit;
@@ -127,4 +129,78 @@ html,body{
   }
 form{
     margin: 0 auto;
+}
+#post{
+  width:35vw ;
+  min-height: 47vh;
+  margin-top: 20px;
+  /* margin: 1.9vmax auto; */
+}
+#imgcard{
+width: inherit;
+min-height: 40vh;
+overflow: hidden;
+}
+#imgcard img{
+  width:inherit;
+  background-size: cover;
+}
+#caption{
+  width: inherit;
+  height: 15vh;
+  background-color:#FFFFFF;
+padding: 1vmax;
+font-family: gilroy;
+}
+#postonly{
+  width:35vw ;
+  min-height: 16vh;
+  background-color:#FFFFFF;
+  margin-top: 3vmax;
+  padding: 2vmax;
+  border-radius: 1vmax;
+  font-family:gilroy;
+}
+#postonly p{
+  margin-top: 1vmax;
+}
+#operations{
+  width: inherit;
+  height: 7vh;
+  padding: 0.8vmax 3vmax;
+  background-color:#FFFFFF;
+
+}
+#operations a{
+  text-decoration: none;
+  color: black;
+}
+#operations i{
+  margin-left: 4vmax;
+  font-size: 1.5vmax;
+
+}
+#operations2{
+  width: inherit;
+  height: 7vh;
+  margin-top: 1vmax;
+}
+#operations2 a{
+  text-decoration: none;
+  color: black;
+}
+#operations2 i{
+  margin-left: 4vmax;
+  font-size: 1.5vmax;
+
+}
+#allpost{
+  width:inherit;
+  height:inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  padding-left: 2vmax;
 }
