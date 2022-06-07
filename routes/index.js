@@ -175,13 +175,20 @@ res.render("aboutme",{user})
 router.post("/uploadprofile",upload.single("profilepic"),function (req,res){
   userModel.findOne({username:req.session.passport.user})
   .then(function(user){
-    console.log(req.file.filename);
-    user.profilepic=req.file.filename
-    user.save()
-    .then(function(data){
-      res.redirect("/profile")
-    })
-  })
+
+    if(req.file=== undefined){
+      res.send("please upload a file")
+    }
+    else{
+      console.log(req.file.filename);
+      user.profilepic=req.file.filename
+      user.save()
+      .then(function(data){
+        res.redirect("/aboutme")
+      })
+  
+    }
+      })
 })
 
 router.post('/login', passport.authenticate('local', {
@@ -230,7 +237,16 @@ user.save()
 
 })
 
+router.get("/delete/:id", function(req,res){
+tweetModel.findOneAndDelete({_id:req.params.id})
+.then(function(tweet){
 
+res.redirect("/aboutme")
+
+})
+
+
+})
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
